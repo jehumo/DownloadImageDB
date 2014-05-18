@@ -16,15 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://www.jpl.nasa.gov/images/spitzer/spitzer-050405-browse.jpg" borderStyle="roundedRect" placeholder="Type or paste URL to download" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ql1-aq-Ls3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://www.jpl.nasa.gov/images/spitzer/spitzer-050405-browse.jpg" borderStyle="roundedRect" placeholder="Type or paste URL to download" minimumFontSize="7" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ql1-aq-Ls3">
                                 <rect key="frame" x="20" y="61" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="4"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dii-BX-qdj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dii-BX-qdj">
                                 <rect key="frame" x="137" y="164" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="qsc-JF-loZ"/>
+                                </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Download image">
@@ -36,11 +39,11 @@
                                     </attributedString>
                                 </state>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6VY-IJ-D0a">
-                                <rect key="frame" x="85" y="129" width="150" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6VY-IJ-D0a">
+                                <rect key="frame" x="20" y="129" width="280" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZ2-Yq-Ppv" userLabel="Curtom View - customView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZ2-Yq-Ppv" userLabel="Custom View - customView">
                                 <rect key="frame" x="0.0" y="175" width="320" height="393"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -64,21 +67,24 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type or paste URL to download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-6U-xA2">
-                                <rect key="frame" x="20" y="32" width="243" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type or paste URL to download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-6U-xA2">
+                                <rect key="frame" x="20" y="20" width="243" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="dqh-5R-ABF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vL7-SK-pYq">
-                                <rect key="frame" x="20" y="140" width="292" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress label " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vL7-SK-pYq">
+                                <rect key="frame" x="20" y="140" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9s-SK-Rou">
-                                <rect key="frame" x="114" y="91" width="93" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9s-SK-Rou">
+                                <rect key="frame" x="107" y="99" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Download file">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,6 +95,28 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a1g-6U-xA2" firstAttribute="leading" secondItem="ql1-aq-Ls3" secondAttribute="leading" id="8o9-TN-y84"/>
+                            <constraint firstItem="6VY-IJ-D0a" firstAttribute="trailing" secondItem="ql1-aq-Ls3" secondAttribute="trailing" id="9Qc-BF-Mup"/>
+                            <constraint firstItem="ql1-aq-Ls3" firstAttribute="top" secondItem="a1g-6U-xA2" secondAttribute="bottom" constant="20" id="CBe-3p-GZb"/>
+                            <constraint firstItem="CZ2-Yq-Ppv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="CGi-bs-Yok"/>
+                            <constraint firstItem="6VY-IJ-D0a" firstAttribute="centerX" secondItem="CZ2-Yq-Ppv" secondAttribute="centerX" id="JqR-R4-B77"/>
+                            <constraint firstItem="ql1-aq-Ls3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="Me7-8d-TfJ"/>
+                            <constraint firstItem="a1g-6U-xA2" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" symbolic="YES" id="NMX-i4-hwK"/>
+                            <constraint firstItem="a1g-6U-xA2" firstAttribute="leading" secondItem="vL7-SK-pYq" secondAttribute="leading" id="W1H-c9-kMu"/>
+                            <constraint firstItem="z9s-SK-Rou" firstAttribute="top" secondItem="ql1-aq-Ls3" secondAttribute="bottom" constant="8" id="Yx6-dc-QpG"/>
+                            <constraint firstItem="z9s-SK-Rou" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="107" id="aNE-dR-oz2"/>
+                            <constraint firstItem="6VY-IJ-D0a" firstAttribute="centerX" secondItem="Dii-BX-qdj" secondAttribute="centerX" id="ayN-fd-9DG"/>
+                            <constraint firstItem="vL7-SK-pYq" firstAttribute="top" secondItem="6VY-IJ-D0a" secondAttribute="bottom" constant="9" id="kLa-io-eaC"/>
+                            <constraint firstItem="6VY-IJ-D0a" firstAttribute="top" secondItem="z9s-SK-Rou" secondAttribute="bottom" id="tGk-dZ-mLb"/>
+                            <constraint firstItem="CZ2-Yq-Ppv" firstAttribute="top" secondItem="vL7-SK-pYq" secondAttribute="bottom" constant="14" id="toR-pg-OXz"/>
+                            <constraint firstAttribute="trailing" secondItem="a1g-6U-xA2" secondAttribute="trailing" constant="57" id="urU-47-PS3"/>
+                            <constraint firstItem="Dii-BX-qdj" firstAttribute="top" secondItem="vL7-SK-pYq" secondAttribute="bottom" constant="3" id="vSy-cA-sD0"/>
+                            <constraint firstAttribute="bottom" secondItem="CZ2-Yq-Ppv" secondAttribute="bottom" id="vVi-iW-H7k"/>
+                            <constraint firstItem="a1g-6U-xA2" firstAttribute="leading" secondItem="6VY-IJ-D0a" secondAttribute="leading" id="vbD-oZ-80K"/>
+                            <constraint firstAttribute="trailing" secondItem="ql1-aq-Ls3" secondAttribute="trailing" constant="20" id="ydf-Pb-ZAZ"/>
+                            <constraint firstItem="Dii-BX-qdj" firstAttribute="centerX" secondItem="CZ2-Yq-Ppv" secondAttribute="centerX" id="z7C-dR-SVL"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="customView" destination="CZ2-Yq-Ppv" id="dps-1c-CMn"/>

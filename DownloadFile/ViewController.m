@@ -8,7 +8,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 
 #import "ViewController.h"
-
+#import <AFNetworking/AFNetworking.h>
 @interface ViewController ()
 
 @end
@@ -20,7 +20,15 @@
     [super viewDidLoad];
     
     self.urlTextField.delegate = self;
-	// Do any additional setup after loading the view, typically from a nib.
+    self.progressView.progress = 0;
+    self.progressView.alpha = 0;
+    self.progressLabel.text = @"";
+}
+
+- (void)viewDidUnload {
+    [self setProgressView:nil];
+    [self setProgressLabel:nil];
+    [super viewDidUnload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +56,80 @@
         [SVProgressHUD showErrorWithStatus:@"Introduce a valid url file."];
         [self.urlTextField becomeFirstResponder];
         
+    } else {
+        self.progressView.alpha = 0;
+        NSURL *url = [NSURL URLWithString:self.urlTextField.text];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        AFHTTPRequestOperation *op;
+        op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        
+        NSString *documentsDirectory = nil;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        documentsDirectory = [paths objectAtIndex:0];
+        
+        NSString *targetFilename = [url lastPathComponent];
+        NSString *targetPath = [documentsDirectory stringByAppendingPathComponent:targetFilename];
+        
+        
+        //[op setResponseFilePath:targetPath];
+        op.responseSerializer = [AFImageResponseSerializer serializer];
+        
+        //http://www.montevideo.com.uy/imgnoticias/201103/316705.jpg
+        
+        //http://upload.wikimedia.org/wikipedia/commons/b/bf/HMAS_Canberra_1_2-100605_bigger.jpg
+        [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            self.imageView.image = responseObject;
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            //failure case
+            NSLog(@"Error: %@", error);
+        }];
+        
+        
+        
+        
+        [op setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+            
+            if (totalBytesExpectedToRead>0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.progressView.alpha = 1;
+                    self.progressView.progress =  (float) totalBytesRead / (float) totalBytesExpectedToRead;
+                    self.progressLabel.text = [NSString stringWithFormat:@"Downloaded %lld of %lld bytes",
+                                               totalBytesRead,
+                                               totalBytesExpectedToRead];
+                });
+            }
+        }];
+        
+        [op start];
+
+        
+
+        
     }
     
         
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
