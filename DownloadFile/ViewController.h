@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AGTSimpleCoreDataStack.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
@@ -16,8 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveImageButton;
 @property (weak, nonatomic) IBOutlet UIView *customView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
+@property (strong, nonatomic) AGTSimpleCoreDataStack * model;
 - (IBAction)downloadFile:(id)sender;
+- (IBAction)saveImage:(id)sender;
 
 
 

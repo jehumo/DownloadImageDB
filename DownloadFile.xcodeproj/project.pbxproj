@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71FA81531929123F00254BA3 /* _Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FA81521929123F00254BA3 /* _Photo.m */; };
+		71FA8159192918B800254BA3 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FA8158192918B800254BA3 /* Photo.m */; };
+		CE1B678A1928C12000E6A9CC /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1B67891928C12000E6A9CC /* AGTSimpleCoreDataStack.m */; };
+		CE1B678E1928C14100E6A9CC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE1B678C1928C14100E6A9CC /* Model.xcdatamodeld */; };
 		CEABF5D019289132001D3549 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEABF5CF19289132001D3549 /* Foundation.framework */; };
 		CEABF5D219289132001D3549 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEABF5D119289132001D3549 /* CoreGraphics.framework */; };
 		CEABF5D419289132001D3549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEABF5D319289132001D3549 /* UIKit.framework */; };
@@ -36,7 +40,14 @@
 
 /* Begin PBXFileReference section */
 		1309839257CC49E9A22AA543 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FA81511929123F00254BA3 /* _Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Photo.h; sourceTree = SOURCE_ROOT; };
+		71FA81521929123F00254BA3 /* _Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Photo.m; sourceTree = SOURCE_ROOT; };
+		71FA8157192918B800254BA3 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = SOURCE_ROOT; };
+		71FA8158192918B800254BA3 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = SOURCE_ROOT; };
 		752066FC2E9843E5AC683E7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CE1B67881928C12000E6A9CC /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
+		CE1B67891928C12000E6A9CC /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
+		CE1B678D1928C14100E6A9CC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CEABF5CC19289132001D3549 /* DownloadFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownloadFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABF5CF19289132001D3549 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEABF5D119289132001D3549 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +94,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE1B678B1928C12700E6A9CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71FA8157192918B800254BA3 /* Photo.h */,
+				71FA8158192918B800254BA3 /* Photo.m */,
+				CE1B67881928C12000E6A9CC /* AGTSimpleCoreDataStack.h */,
+				CE1B67891928C12000E6A9CC /* AGTSimpleCoreDataStack.m */,
+				CE1B678C1928C14100E6A9CC /* Model.xcdatamodeld */,
+				71FA81511929123F00254BA3 /* _Photo.h */,
+				71FA81521929123F00254BA3 /* _Photo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		CEABF5C319289132001D3549 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +143,7 @@
 		CEABF5D519289132001D3549 /* DownloadFile */ = {
 			isa = PBXGroup;
 			children = (
+				CE1B678B1928C12700E6A9CC /* Model */,
 				CEABF5DE19289132001D3549 /* AppDelegate.h */,
 				CEABF5DF19289132001D3549 /* AppDelegate.m */,
 				CEABF5E119289132001D3549 /* Main.storyboard */,
@@ -290,9 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71FA8159192918B800254BA3 /* Photo.m in Sources */,
 				CEABF5E619289132001D3549 /* ViewController.m in Sources */,
 				CEABF5E019289132001D3549 /* AppDelegate.m in Sources */,
+				CE1B678E1928C14100E6A9CC /* Model.xcdatamodeld in Sources */,
+				CE1B678A1928C12000E6A9CC /* AGTSimpleCoreDataStack.m in Sources */,
 				CEABF5DC19289132001D3549 /* main.m in Sources */,
+				71FA81531929123F00254BA3 /* _Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +543,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE1B678C1928C14100E6A9CC /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE1B678D1928C14100E6A9CC /* Model.xcdatamodel */,
+			);
+			currentVersion = CE1B678D1928C14100E6A9CC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CEABF5C419289132001D3549 /* Project object */;
 }

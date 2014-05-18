@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,23 +22,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="4"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dii-BX-qdj">
-                                <rect key="frame" x="137" y="164" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="qsc-JF-loZ"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Download image">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6VY-IJ-D0a">
                                 <rect key="frame" x="20" y="129" width="280" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,23 +30,26 @@
                                 <rect key="frame" x="0.0" y="175" width="320" height="393"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjT-5i-WKS">
-                                        <rect key="frame" x="0.0" y="-9" width="320" height="321"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2F-mM-luE">
-                                        <rect key="frame" x="20" y="343" width="135" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please, enter the name of the file" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2F-mM-luE">
+                                        <rect key="frame" x="10" y="20" width="196" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4X-l4-H7C">
-                                        <rect key="frame" x="193" y="342" width="80" height="30"/>
+                                        <rect key="frame" x="220" y="19" width="80" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Save image">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QSF-Z0-w2p"/>
+                                        </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjT-5i-WKS">
+                                        <rect key="frame" x="0.0" y="72" width="320" height="321"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -106,16 +92,13 @@
                             <constraint firstItem="a1g-6U-xA2" firstAttribute="leading" secondItem="vL7-SK-pYq" secondAttribute="leading" id="W1H-c9-kMu"/>
                             <constraint firstItem="z9s-SK-Rou" firstAttribute="top" secondItem="ql1-aq-Ls3" secondAttribute="bottom" constant="8" id="Yx6-dc-QpG"/>
                             <constraint firstItem="z9s-SK-Rou" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="107" id="aNE-dR-oz2"/>
-                            <constraint firstItem="6VY-IJ-D0a" firstAttribute="centerX" secondItem="Dii-BX-qdj" secondAttribute="centerX" id="ayN-fd-9DG"/>
                             <constraint firstItem="vL7-SK-pYq" firstAttribute="top" secondItem="6VY-IJ-D0a" secondAttribute="bottom" constant="9" id="kLa-io-eaC"/>
                             <constraint firstItem="6VY-IJ-D0a" firstAttribute="top" secondItem="z9s-SK-Rou" secondAttribute="bottom" id="tGk-dZ-mLb"/>
                             <constraint firstItem="CZ2-Yq-Ppv" firstAttribute="top" secondItem="vL7-SK-pYq" secondAttribute="bottom" constant="14" id="toR-pg-OXz"/>
                             <constraint firstAttribute="trailing" secondItem="a1g-6U-xA2" secondAttribute="trailing" constant="57" id="urU-47-PS3"/>
-                            <constraint firstItem="Dii-BX-qdj" firstAttribute="top" secondItem="vL7-SK-pYq" secondAttribute="bottom" constant="3" id="vSy-cA-sD0"/>
                             <constraint firstAttribute="bottom" secondItem="CZ2-Yq-Ppv" secondAttribute="bottom" id="vVi-iW-H7k"/>
                             <constraint firstItem="a1g-6U-xA2" firstAttribute="leading" secondItem="6VY-IJ-D0a" secondAttribute="leading" id="vbD-oZ-80K"/>
                             <constraint firstAttribute="trailing" secondItem="ql1-aq-Ls3" secondAttribute="trailing" constant="20" id="ydf-Pb-ZAZ"/>
-                            <constraint firstItem="Dii-BX-qdj" firstAttribute="centerX" secondItem="CZ2-Yq-Ppv" secondAttribute="centerX" id="z7C-dR-SVL"/>
                         </constraints>
                     </view>
                     <connections>

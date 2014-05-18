@@ -9,6 +9,7 @@
 
 #import "ViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "Photo.h"
 @interface ViewController ()
 
 @end
@@ -19,7 +20,13 @@
 {
     [super viewDidLoad];
     
+    
+    [self.customView setAlpha:0];
+    self.model = [AGTSimpleCoreDataStack coreDataStackWithModelName:@"Model"];
+
+    
     self.urlTextField.delegate = self;
+    self.fileNameTextField.delegate = self;
     self.progressView.progress = 0;
     self.progressView.alpha = 0;
     self.progressLabel.text = @"";
@@ -41,22 +48,26 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.urlTextField resignFirstResponder];
+    [self.fileNameTextField resignFirstResponder];
     //[self.urlTextField endEditing:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.urlTextField  resignFirstResponder];
+    
+    [textField resignFirstResponder];
     return NO;
 }
 
 
 - (IBAction)downloadFile:(id)sender {
-    
+    [self.customView setAlpha:0];
+
     if ([self.urlTextField.text isEqualToString:@""]) {
         [SVProgressHUD showErrorWithStatus:@"Introduce a valid url file."];
         [self.urlTextField becomeFirstResponder];
         
     } else {
+        
         self.progressView.alpha = 0;
         NSURL *url = [NSURL URLWithString:self.urlTextField.text];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -79,12 +90,18 @@
         //http://upload.wikimedia.org/wikipedia/commons/b/bf/HMAS_Canberra_1_2-100605_bigger.jpg
         [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             
+            [self.customView setAlpha:1];
+
             self.imageView.image = responseObject;
-            
+          
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             //failure case
             NSLog(@"Error: %@", error);
+            [self.customView setAlpha:0];
+
+            [SVProgressHUD showErrorWithStatus:@"Error downloading file"];
+
         }];
         
         
@@ -104,13 +121,35 @@
         }];
         
         [op start];
+    }
+}
 
+- (IBAction)saveImage:(id)sender {
+    
+    if ([self.fileNameTextField.text isEqual:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"Introduce a valid name file."];
+        [self.fileNameTextField becomeFirstResponder];
+    } else {
+        Photo * photo = [Photo photoWithName:self.fileNameTextField.text
+                                   imageData:UIImagePNGRepresentation(self.imageView.image)
+                                     context:self.model.context];
         
+        
+        
+        
+        [self.model saveWithErrorBlock:^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"Error saving file in Database"];
+            
 
+            NSLog(@"Error saving %s \n\n %@",__func__, error);
+        }];
+        
+        [SVProgressHUD showSuccessWithStatus:@"Image saved with success"];
+        
+        
         
     }
     
-        
 }
 
 
