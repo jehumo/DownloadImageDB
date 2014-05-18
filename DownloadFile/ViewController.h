@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
+@property (weak, nonatomic) IBOutlet UITextField *fileNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *saveImageButton;
+@property (weak, nonatomic) IBOutlet UIView *customView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+- (IBAction)downloadFile:(id)sender;
+
+
 
 @end
