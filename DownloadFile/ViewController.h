@@ -20,6 +20,7 @@
 @property (strong, nonatomic) AGTSimpleCoreDataStack * model;
 - (IBAction)downloadFile:(id)sender;
 - (IBAction)saveImage:(id)sender;
+- (IBAction)loadImage:(id)sender;
 
 
 

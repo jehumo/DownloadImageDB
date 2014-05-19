@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self customizeAppearance];
     return YES;
 }
 							
@@ -42,5 +43,23 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+-(void) customizeAppearance{
+    
+    UIColor *capturedGreen = [UIColor colorWithRed:102.0/255.0
+                                        green:204.0/255.0
+                                         blue:1.0/255.0
+                                        alpha:1];
+    UIColor *darkRed = [UIColor colorWithRed:168.0 / 255
+                                       green:11.0 / 255.0
+                                        blue:31.0 / 255.0
+                                       alpha:0.5];
 
+    [[UIButton appearance] setTintColor: capturedGreen];
+    //[[UITextField appearance] setTintColor:capturedGreen];
+    [[UIProgressView appearance] setTintColor:capturedGreen];
+    [[UILabel appearance] setTintColor:capturedGreen];
+    //[[UILabel appearance] setBackgroundColor:[UIColor greenColor]];
+
+    
+}
 @end

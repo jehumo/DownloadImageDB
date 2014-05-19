@@ -153,22 +153,36 @@
 }
 
 
+- (IBAction)loadImage:(id)sender {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:[Photo entityName]
+                                              inManagedObjectContext:self.model.context];
+    [fetchRequest setEntity:entity];
+    
 
+    NSString *predicateString = [NSString stringWithFormat:@"name==\"%@\"", self.fileNameTextField.text];
+    NSPredicate * predicateByName = [NSPredicate predicateWithFormat:predicateString];
 
+    
+    [fetchRequest setPredicate:predicateByName];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.model.context executeFetchRequest:fetchRequest error:&error];
+    
+    if ((fetchedObjects == nil) || ([fetchedObjects count] == 0)) {
+        [SVProgressHUD showSuccessWithStatus:@"File name not found in Database"];
+        
+    } else {
+        // Enable
+        [SVProgressHUD showSuccessWithStatus:@"Image retrieved with success"];
+        Photo * photo = (Photo *) [fetchedObjects firstObject];
+        
+        
+        self.imageView.image = [UIImage imageWithData:photo.imageData];
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+}
 @end
